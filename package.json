@@ -9,8 +9,8 @@
     "seed": "node seeds/seed.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Adam G, Kelvin E, Stefan P",
+  "license": "MIT",
   "devDependencies": {
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
