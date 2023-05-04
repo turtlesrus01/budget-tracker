@@ -1,0 +1,32 @@
+<h1>Welcome to your budget dashboard!</h1>
+
+<h2>Categories</h2>
+
+{{#if Category.length}}
+  <ul>
+    {{#each Category}}
+      <li>
+        <a href="/categories/{{id}}">{{name}}</a>
+      </li>
+    {{/each}}
+  </ul>
+  {{else}}
+  <p>No categories found</p>
+  {{/if}}
+
+<h2>Goals</h2>
+
+{{#if Goals.length}}
+<ul>
+  {{#each Goals}}
+  <li>
+    <a href="/goals/{{id}}">{{name}}</a>
+    <p>Target amount: ${{targetAmount}}</p>
+    <p>Target amount: ${{currentAmount}}</p>
+    <p>Deadline: {{deadline}}</p>
+  </li>
+  {{/each}}
+</ul>
+{{else}}
+<p>No goals found</p>
+{{/if}}
