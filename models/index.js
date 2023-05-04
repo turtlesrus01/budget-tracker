@@ -14,14 +14,12 @@ Expenses.belongsTo(User, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });
-//Each expense has one Category
-Expenses.hasOne(Category, {
-  foreignKey: "category_id",
-  onDelete: "CASCADE",
-});
-//Category is related to Expenses
-Category.belongsTo(Expenses, {
-  foreignKey: "expense_id",
+//Categories can have many expenses
+Category.hasMany(Expenses, {
+  onDelete: 'CASCADE',
+})
+//Expenses belong to a specific category
+Expenses.belongsTo(Category, {
   onDelete: "CASCADE",
 });
 //User can have many Goals
@@ -35,4 +33,4 @@ Goals.belongsTo(User, {
   onDelete: "CASCADE",
 });
 //export classes
-module.exports = { User, Category, Expense, Goals };
+module.exports = { User, Category, Expenses, Goals };
