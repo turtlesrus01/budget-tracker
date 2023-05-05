@@ -7,9 +7,10 @@ router.get('/users', async (req, res) => {
     try{
         const users = await User.findAll();
         res.json(users);
-    } catch (err) {
+    
+      } catch (err) {
         console.error(err);
-        res.status(500).json(err)
+        res.status(500).json(err);
     }
 });
 
@@ -22,7 +23,7 @@ router.get('users/:id', async (req,res) => {
    
     }  catch (err) {
     console.err(err);
-    res.status(500).json(err)
+    res.status(500).json(err);
         
     }
 });
@@ -36,7 +37,7 @@ router.post('users', async (req, res) => {
         
     } catch (err) {
         console.err(err);
-    res.status(500).json(err)
+    res.status(500).json(err);
     }
 });
 
