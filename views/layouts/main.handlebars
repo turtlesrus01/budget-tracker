@@ -25,20 +25,25 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/auth/login">Login</a>
+                    <a class="nav-link" href="/login">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/auth/signup">Signup</a>
-                </li>
+                    <a  class="nav-link" href="/auth/signup">Signup</a>
+                </li>      
             </ul>
         </div>
+    <div>
+         <button id="logout" type="submit" class="btn btn-primary">Logout</button>
+    </div>
+
     </nav>
 
     <div class="container">
         {{{body}}}
+        <script src="/js/logout.js"></script>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    {{!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper-base.min.js"
@@ -46,8 +51,10 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-Ogvr5Os9aBJaUb79r+oVR0pdTpH1k0CGf3KN9Hb/P1TU8X73UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> --}}
 
+  
+  
 
   </body>
 

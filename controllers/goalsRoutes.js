@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Goals = require('../../models/Goals');
+const Goals = require('../models/Goals');
 
 // GET all goals for a user
 router.get('/', async (req, res) => {
