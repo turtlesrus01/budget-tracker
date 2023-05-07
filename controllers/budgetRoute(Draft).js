@@ -1,6 +1,5 @@
-const express = require('express')
 const router = require('express').Router();
-const { User, Expenses, Category } = require('../../models');
+const { User, Expenses, Category } = require('../models');
 const withAuth = require('../utils/auth');
 const { Sequelize } = require('sequelize');
 
