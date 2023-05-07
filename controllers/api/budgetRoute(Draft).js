@@ -34,7 +34,7 @@ router.get('users/:id', async (req,res) => {
 });
 
 // Create new user
-router.post('users', async (req, res) => {
+router.post('/users', async (req, res) => {
     const { username, password, email } = req.body
     try {
      const newUser = await User.create({ username, password, email});
@@ -48,7 +48,7 @@ router.post('users', async (req, res) => {
 });
 
 // Update user by ID
-router.put('users/:id', async (req, res) => {
+router.put('/users/:id', async (req, res) => {
     const { username, password, email } = req.body;
     try {
       const user = await User.findByPk(req.params.id);
@@ -88,6 +88,7 @@ router.get('/users/dashboard', withAuth, async (req, res) => {
   //query db to get data
   const dashData = await Expenses.findAll({
     attributes: [
+      //Sequelize function to add all expenses in variable total amount 
       [Sequelize.fn('SUM', Sequelize.col('amount')), 'total_amount']
     ],
     //include data from Category and User models
