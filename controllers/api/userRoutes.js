@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-//Login route to check password and email
-router.post('/login', async (req, res) => {
+// User login
+router.post('/login', withAuth, async (req, res) => {
   try {
     //Query request for the user email
     const userData = await User.findOne({ where: { email: req.body.email } });
@@ -34,7 +35,8 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
-//Logout route and ending session
+
+// User logout 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
@@ -42,6 +44,26 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+// User signup
+router.post('/users/signup', async (req, res) => {
+  try {
+    const userData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    });
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      
+      res.json({ user: userData, message: 'You are now signed up and logged in!' });
+    });
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
