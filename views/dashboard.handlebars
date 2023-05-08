@@ -10,25 +10,25 @@
       </li>
     {{/each}}
   </ul>
-  {{else}}
+{{else}}
   <p>No categories found</p>
-  {{/if}}
+{{/if}}
 
 <h2>Goals</h2>
 
 {{#if Goals.length}}
-<ul>
-  {{#each Goals}}
-  <li>
-    <a href="/goals/{{id}}">{{name}}</a>
-    <p>Target amount: ${{targetAmount}}</p>
-    <p>Target amount: ${{currentAmount}}</p>
-    <p>Deadline: {{deadline}}</p>
-  </li>
-  {{/each}}
-</ul>
+  <ul>
+    {{#each Goals}}
+      <li>
+        <a href="/goals/{{id}}">{{name}}</a>
+        <p>Target amount: ${{targetAmount}}</p>
+        <p>Target amount: ${{currentAmount}}</p>
+        <p>Deadline: {{deadline}}</p>
+      </li>
+    {{/each}}
+  </ul>
 {{else}}
-<p>No goals found</p>
+  <p>No goals found</p>
 {{/if}}
 
 <h2>Expenses</h2>
