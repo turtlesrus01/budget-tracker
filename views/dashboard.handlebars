@@ -30,3 +30,20 @@
 {{else}}
 <p>No goals found</p>
 {{/if}}
+
+<h2>Expenses</h2>
+
+{{#if Expenses.length}}
+  <ul>
+    {{#each Expenses}}
+      <li>
+        <p>Amount: ${{amount}}</p>
+        <p>Date: {{date}}</p>
+        <p>Category: {{Category.name}}</p>
+        <p>User: {{User.user_id}}</p>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No expenses found</p>
+{{/if}}
