@@ -1,1 +1,42 @@
-<h2>This is Expenses</h2>
+{{!expenses.handlebars}}
+
+{{#extend "layouts/main"}}
+
+{{#content "title"}}
+Expenses 
+{{/content}}
+
+{{#content "body"}}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Expenses</h1>
+        </div>
+    </div>
+
+     <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Amount</th>
+                        <th>User ID</th>
+                        <th>Category ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each expenses}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.amount}}</td>
+                        <td>{{this.user.id}}</td>
+                        <td>{{this.category.id}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+     </div>
+{{/content}}
+
+{{/extend}}
