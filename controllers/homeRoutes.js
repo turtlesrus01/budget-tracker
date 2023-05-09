@@ -57,4 +57,13 @@ router.get('/signup', (req, res) => {
     res.render('dashboard');
   });
 
+  router.get('/expenses', (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('expenses');
+  });
+
 module.exports = router;
