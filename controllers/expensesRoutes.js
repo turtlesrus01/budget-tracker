@@ -19,6 +19,7 @@ router.post("/expenses", withAuth, async (req, res) => {
     try {
       const expenses = await Expenses.findAll();
       res.json(expenses);
+      res.render('expenses', { expenses });
     } catch (error) {
       res.status(500).json({err});
     }
