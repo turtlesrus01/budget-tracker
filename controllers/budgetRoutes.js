@@ -109,7 +109,7 @@ router.get('/users/dashboard', withAuth, async (req, res) => {
   //render dashboard
   res.render('dashboard', {
     title: 'dashboard',
-    dash,
+    dashboard,
     logged_in: req.session.logged_in,
   });
   } catch (err) {

@@ -12,8 +12,8 @@ Goals.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    //Name of goal
-    name: {
+    //Description of goal
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
