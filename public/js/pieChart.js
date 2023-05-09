@@ -2,7 +2,7 @@
 const { Chart } = require("../../node_modules/chart.js");
 
 //fetch expenses from server
-async function fetchData() {
+(async function () {
   const expensesData = await fetch("/api/expenses", {
     method: "GET",
     headers: { "Content-Type": "application/json" },
@@ -44,6 +44,5 @@ async function fetchData() {
       ],
     },
   });
-};
+})();
 
-fetchData();
