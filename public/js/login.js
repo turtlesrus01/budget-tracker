@@ -12,9 +12,7 @@ const loginFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/profile');
-      } else {
-        alert('Failed to log in');
+        document.location.replace('/dashboard');
       }
     }
   };

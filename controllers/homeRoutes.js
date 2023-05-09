@@ -11,8 +11,8 @@ router.get('/', withAuth, async (req, res) => {
 
     const users = userData.map((category) => category.get({ plain: true }));
 
-    res.render('homepage', {
-      title: 'Homepage',
+    res.render('dashboard', {
+      title: 'Dashboard',
       users,
       logged_in: req.session.logged_in,
     });
@@ -23,7 +23,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 
@@ -39,5 +39,22 @@ router.get('/signup', (req, res) => {
     res.render('signup');
   });
   
+  router.get('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('logout');
+  });
+
+  router.get('/dashboard', (req, res) => {
+    if (req.session.logged_in) {
+      res.redirect('/');
+      return;
+    }
+  
+    res.render('dashboard');
+  });
 
 module.exports = router;
