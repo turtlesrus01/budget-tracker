@@ -1,14 +1,15 @@
 //import chart.js
-const { Chart } = require("../../node_modules/chart.js");
+//const { Chart } = require("../../node_modules/chart.js");
+//const { Chart } = await import('chart.js');
 
 //fetch expenses from server
 (async function () {
-  const expensesData = await fetch("/api/expenses", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  }).json();
+  
+  const response = await fetch("/api/expenses");
+  console.log(response);
+  const expensesData = await response.json();
 
-  // Group the expenses by category
+  //group the expenses by category
   const expensesByCategory = expensesData.reduce((acc, expense) => {
     if (acc[expense.category_id]) {
       acc[expense.category_id].amount += expense.amount;
@@ -22,10 +23,10 @@ const { Chart } = require("../../node_modules/chart.js");
     return acc;
   }, {});
 
-  // Get the chart canvas element
+  //get the chart canvas element
   const chartCanvas = document.getElementById("expenses-chart");
 
-  // Create the chart
+  //create the chart
   const expensesChart = new Chart(chartCanvas, {
     type: "pie",
     data: {
@@ -45,4 +46,3 @@ const { Chart } = require("../../node_modules/chart.js");
     },
   });
 })();
-
