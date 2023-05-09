@@ -24,3 +24,19 @@ Expenses
                         <th>Category ID</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {{#each expenses}}
+                    <tr>
+                        <td>{{this.id}}</td>
+                        <td>{{this.amount}}</td>
+                        <td>{{this.user.id}}</td>
+                        <td>{{this.category.id}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+     </div>
+{{/content}}
+
+{{/extend}}
