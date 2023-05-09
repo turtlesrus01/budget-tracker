@@ -44,4 +44,6 @@ async function fetchData() {
       ],
     },
   });
-}
+};
+
+fetchData();
