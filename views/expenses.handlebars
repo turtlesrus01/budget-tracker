@@ -46,13 +46,22 @@ Expenses
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Target Amount</th>
                     <th>Current Amount</th>
+                    <th>Target Amount</th>
                     <th>Deadline</th>
                     <th>Achieved</th>
-                    
                 </tr>
             </thead>
+            <tbody>
+                {{#each goals}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.currentAmount}}</td>
+                    <td>{{this.targetAmount}}</td>
+                    <td>{{this.deadline}}</td>
+                    <td>{{this.Achieved}}</td>
+                </tr>
+            </tbody>
         </table>
      </div>
 
