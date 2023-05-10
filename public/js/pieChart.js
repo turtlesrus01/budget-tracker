@@ -5,9 +5,10 @@
 //fetch expenses from server
 (async function () {
   
-  const response = await fetch("/api/expenses");
+  const response = await fetch("/expenses");
   console.log(response);
   const expensesData = await response.json();
+  console.log(expensesData);
 
   //group the expenses by category
   const expensesByCategory = expensesData.reduce((acc, expense) => {
