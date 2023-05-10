@@ -33,10 +33,48 @@ Expenses
                         <td>{{this.category.id}}</td>
                     </tr>
                     {{/each}}
+
+                   
                 </tbody>
             </table>
         </div>
      </div>
+
+     <div class="col-md-6">
+        <h2>Goals</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Current Amount</th>
+                    <th>Target Amount</th>
+                    <th>Deadline</th>
+                    <th>Achieved</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each goals}}
+                <tr>
+                    <td>{{this.name}}</td>
+                    <td>{{this.currentAmount}}</td>
+                    <td>{{this.targetAmount}}</td>
+                    <td>{{this.deadline}}</td>
+                    <td>{{this.Achieved}}</td>
+                    
+                    <td>
+                        <a href="/goals/{{this.id}}/edit" class="btn btn-primary btn-sm">EDIT</a>
+                        <form action="/goals/{{this.id}}/edit" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger btn-sm">DELETE</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="/goals/new" class="btn btn-success">Add a New Goal</a>
+     </div>
+
+
 {{/content}}
 
 {{/extend}}
