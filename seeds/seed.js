@@ -2,7 +2,9 @@ const sequelize = require("../config/connection");
 const { User, Category, Expenses, Goals } = require("../models");
 
 const usersSeedData = [
-  { name: "John Doe", email: "johndoe@example.com", password: "password123" },
+  { name: "John Doe", 
+    email: "johndoe@example.com", 
+    password: "password123" },
   {
     name: "Jane Smith",
     email: "janesmith@example.com",
@@ -71,7 +73,7 @@ const goalsSeedData = [
     currentAmount: 300,
     deadline: "2023-06-01",
     achieved: false,
-    user_id: 1
+    user_id: 1,
   },
   {
     description: "Vacation fund",
@@ -79,7 +81,7 @@ const goalsSeedData = [
     currentAmount: 200,
     deadline: "2023-12-31",
     achieved: false,
-    user_id: 2
+    user_id: 2,
   },
   {
     description: "New laptop",
@@ -87,8 +89,8 @@ const goalsSeedData = [
     currentAmount: 600,
     deadline: "2024-03-15",
     achieved: false,
-    user_id: 1
-  }
+    user_id: 1,
+  },
 ];
 
 const seedDatabase = async () => {
