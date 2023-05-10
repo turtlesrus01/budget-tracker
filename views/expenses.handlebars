@@ -62,8 +62,11 @@ Expenses
                     <td>{{this.Achieved}}</td>
                     
                     <td>
-                        <a href="/goals/{{this.id}}/edit" class="btn btn-primary btn-sm">Edit</a>
-                    
+                        <a href="/goals/{{this.id}}/edit" class="btn btn-primary btn-sm">EDIT</a>
+                        <form action="/goals/{{this.id}}/edit" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger btn-sm">DELETE</button>
+                        </form>
                     </td>
                 </tr>
             </tbody>
