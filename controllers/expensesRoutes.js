@@ -16,10 +16,9 @@ router.post("/", withAuth, async (req, res) => {
 // Get all expenses for a specific user
 router.get("/:id", withAuth, async (req, res) => {
   try {
-    console.log(req.params.id);
-    const expenseId = req.params.id;
+    console.log(req.session.user_id);
     const expenses = await Expenses.findAll({
-      where: { id: expenseId, user_id: req.session.user_id },
+      where: { user_id: req.session.user_id },
       raw: true,
     });
     if (!expenses.length) {
