@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
       where: { user_id: req.user.id },
     });
     res.json(goals);
-  
+    res.render('goals', { goals });
 } catch (err) {
     console.err(err);
     res.status(500).json(err)

@@ -82,10 +82,13 @@ router.delete('/users/:id', async (req, res) => {
   });
 
 //Get route for dashboard data
-router.get('/users/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try{
   //query db to get data
+  console.log(req.params.id);
+  const userId = req.params.id;
   const dashData = await Expenses.findAll({
+    where: { user_id: req.session.user_id },  
     attributes: [
       //Sequelize function to add all expenses in variable total amount 
       [Sequelize.fn('SUM', Sequelize.col('amount')), 'total_amount']
@@ -102,7 +105,8 @@ router.get('/users/dashboard', withAuth, async (req, res) => {
       }
     ],
     //Group all expenses by Category
-    group: ['category_id']
+    group: ['category_id'],
+    raw: true,
   })
   //variable to store the data
   const dashboard = dashData.map((dash) => dash.get({ plain: true }));
