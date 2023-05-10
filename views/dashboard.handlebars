@@ -25,7 +25,7 @@
       <li>
         <a href="/goals/{{id}}">{{name}}</a>
         <p>Target amount: ${{targetAmount}}</p>
-        <p>Target amount: ${{currentAmount}}</p>
+        <p>Current amount: ${{currentAmount}}</p>
         <p>Deadline: {{deadline}}</p>
       </li>
     {{/each}}
@@ -53,4 +53,8 @@
 
 <script src="/js/logout.js"></script>
 
-<script type="module" src="/js/pieChart.js"></script>
+<script 
+  type="module"
+  async
+  defer
+  src="/js/pieChart.js"></script>
