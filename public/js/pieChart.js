@@ -8,7 +8,7 @@
   const response = await fetch("/expenses");
   console.log(response);
   const expensesData = await response.json();
-  console.log(expensesData);
+  console.log("Response"+expensesData);
 
   //group the expenses by category
   const expensesByCategory = expensesData.reduce((acc, expense) => {
