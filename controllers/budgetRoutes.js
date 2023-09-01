@@ -85,10 +85,10 @@ router.delete('/users/:id', async (req, res) => {
 router.get('/dashboard', withAuth, async (req, res) => {
   try{
   //query db to get data
-  console.log(req.params.id);
-  const userId = req.params.id;
+  console.log(req.session.user_id);
+  const userId = req.session.user_id;
   const dashData = await Expenses.findAll({
-    where: { user_id: req.session.user_id },  
+    where: { user_id: userId },  
     attributes: [
       //Sequelize function to add all expenses in variable total amount 
       [Sequelize.fn('SUM', Sequelize.col('amount')), 'total_amount']
@@ -108,6 +108,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
     group: ['category_id'],
     raw: true,
   })
+  if (!dashData.length) {
+    return res.status(400).json({ error: "Expenses not found" });
+  }
   //variable to store the data
   const dashboard = dashData.map((dash) => dash.get({ plain: true }));
   //render dashboard
