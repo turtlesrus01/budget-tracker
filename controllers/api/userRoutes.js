@@ -2,8 +2,8 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// Get route to catch errors
-router.get("/", async (req, res) => {
+// Get route of all users to catch errors
+router.get("/allUsers", async (req, res) => {
   const userData = await User.findAll().catch((err) => {
     res.json(err);
   });

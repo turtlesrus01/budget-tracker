@@ -1,8 +1,10 @@
 const router = require('express').Router();
-const { User, Expenses, Category } = require('../models');
-const withAuth = require('../utils/auth');
+const { User, Expenses, Category } = require('../../models');
+const withAuth = require('../../utils/auth');
 const { Sequelize } = require('sequelize');
 
+
+//User CRUD methods
 // GET all users 
 router.get('/users', async (req, res) => {
     try{
@@ -81,6 +83,7 @@ router.delete('/users/:id', async (req, res) => {
     }
   });
 
+//Dashboard  
 //Get route for dashboard data
 router.get('/dashboard', withAuth, async (req, res) => {
   try{
